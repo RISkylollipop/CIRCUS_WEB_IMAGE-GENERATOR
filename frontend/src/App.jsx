@@ -128,6 +128,7 @@ function App() {
   /* ---- UI-only state ---- */
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [legalPage, setLegalPage] = useState("");
   const [dimensions, setDimensions] = useState(null);
   const [imagePrompt, setImagePrompt] = useState("");
 
@@ -223,6 +224,21 @@ function App() {
       event.preventDefault();
       generateImage();
     }
+  };
+
+  const legalContent = {
+    terms: {
+      title: "Terms of Use",
+      body: "Use Circus Web only for lawful content that you have the right to create. Generated results may vary, and you are responsible for reviewing images before publishing or using them commercially.",
+    },
+    privacy: {
+      title: "Privacy Policy",
+      body: "Circus Web uses the prompt and provider selection to process an image-generation request. Generated images are kept in your browser session and are not intentionally stored by this interface. Do not submit sensitive personal information in prompts.",
+    },
+    disclaimer: {
+      title: "Disclaimer",
+      body: "Circus Web is provided as an AI-assisted creative tool. Results are not guaranteed to be accurate, unique, available, or suitable for every purpose. Check generated content for rights, safety, accuracy, and policy requirements before use.",
+    },
   };
 
   return (
@@ -448,6 +464,17 @@ function App() {
         </section>
       </main>
 
+      <footer className="site-footer">
+        <div className="site-footer__inner">
+          <p className="site-footer__copyright">© {new Date().getFullYear()} Circus Web. All rights reserved.</p>
+          <nav className="site-footer__links" aria-label="Legal">
+            <button type="button" onClick={() => setLegalPage("terms")}>Terms of Use</button>
+            <button type="button" onClick={() => setLegalPage("privacy")}>Privacy Policy</button>
+            <button type="button" onClick={() => setLegalPage("disclaimer")}>Disclaimer</button>
+          </nav>
+        </div>
+      </footer>
+
       {/* ---------------- Error modal ---------------- */}
       <div className="modal-region" aria-live="assertive" aria-atomic="true">
         {error && (
@@ -471,6 +498,18 @@ function App() {
           </div>
         )}
       </div>
+
+      {legalPage && (
+        <div className="legal-region" onMouseDown={() => setLegalPage("")}>
+          <section className="legal-modal" role="dialog" aria-modal="true" aria-labelledby="legal-title" onMouseDown={(event) => event.stopPropagation()}>
+            <button type="button" className="legal-modal__close" onClick={() => setLegalPage("")} aria-label="Close legal information">×</button>
+            <p className="legal-modal__eyebrow">Circus Web</p>
+            <h2 id="legal-title">{legalContent[legalPage].title}</h2>
+            <p>{legalContent[legalPage].body}</p>
+            <button type="button" className="btn legal-modal__action" onClick={() => setLegalPage("")}>Close</button>
+          </section>
+        </div>
+      )}
     </div>
   );
 }
