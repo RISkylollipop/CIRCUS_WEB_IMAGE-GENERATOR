@@ -116,6 +116,10 @@ app.post("/generateimage", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  infoLogger("App listening", { port: PORT });
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    infoLogger("App listening", { port: PORT });
+  });
+}
+
+module.exports = app;

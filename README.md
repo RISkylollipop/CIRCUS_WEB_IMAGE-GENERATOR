@@ -73,6 +73,27 @@ npm run frontend
 
 The frontend is normally available at `http://localhost:5173` and the backend at `http://localhost:3300`.
 
+## Deploying Frontend and API Together on Vercel
+
+This repository is configured as a single Vercel project. `vercel.json` builds the Vite frontend from `frontend/` and `api/generateimage.js` exposes the image-generation endpoint as a Vercel serverless function.
+
+In Vercel, use the repository root as the project root. The checked-in configuration provides these values:
+
+```text
+Build Command: cd frontend && npx vite build
+Output Directory: frontend/dist
+Install Command: npm install && npm --prefix frontend install && npm --prefix backend install
+```
+
+For the combined deployment, leave `VITE_API_URL` empty or unset. The frontend then calls `/api/generateimage` on the same Vercel domain. Set these Vercel environment variables:
+
+```env
+IMAGEGENKEY=your_nvidia_api_key
+CLIENT_ORIGIN=https://your-project.vercel.app
+```
+
+`PORT` is only needed for local backend development. Vercel does not run `backend/server.js` with `app.listen()`; it imports the exported Express app through `api/generateimage.js`.
+
 ## API
 
 ### `POST /generateimage`

@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 
-const BASEURL = import.meta.env.VITE_API_URL;
+const BASEURL = import.meta.env.VITE_API_URL || "";
+const IMAGE_API_PATH = BASEURL
+  ? `${BASEURL}/generateimage`
+  : "/api/generateimage";
 
 /* Rename this to your product name — it renders in the header. */
 const APP_NAME = "Studio";
@@ -161,7 +164,7 @@ function App() {
     setError("");
 
     try {
-      const res = await fetch(`${BASEURL}/generateimage`, {
+      const res = await fetch(IMAGE_API_PATH, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
