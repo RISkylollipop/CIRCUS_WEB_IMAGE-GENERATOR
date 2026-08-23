@@ -1,10 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 
-const BASEURL = import.meta.env.VITE_API_URL || "";
-const IMAGE_API_PATH = BASEURL
-  ? `${BASEURL}/generateimage`
-  : "/api/generateimage";
+const BASEURL = import.meta.env.VITE_API_URL;
 
 /* Rename this to your product name — it renders in the header. */
 const APP_NAME = "Studio";
@@ -164,7 +161,7 @@ function App() {
     setError("");
 
     try {
-      const res = await fetch(IMAGE_API_PATH, {
+      const res = await fetch(`${BASEURL}/generateimage`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -188,7 +185,8 @@ function App() {
               : `Request failed (${res.status}). Check the backend logs and try again.`)
         );
       }
-    } catch {
+    } catch (err) {
+      console.error(err);
       setError(
         "Can't reach the image service. Confirm the backend is running, then try again."
       );
@@ -454,16 +452,7 @@ function App() {
       <div className="modal-region" aria-live="assertive" aria-atomic="true">
         {error && (
           <div className="modal-backdrop" onMouseDown={() => setError("")}>
-          <div
-            className="error-modal"
-            role="alertdialog"
-            aria-modal="true"
-            aria-labelledby="error-modal-title"
-            aria-describedby="error-modal-description"
-            tabIndex="-1"
-            ref={errorDialogRef}
-            onMouseDown={(event) => event.stopPropagation()}
-          >
+          <div className="error-modal" role="alertdialog" aria-modal="true" aria-labelledby="error-modal-title" aria-describedby="error-modal-description" tabIndex="-1" ref={errorDialogRef} onMouseDown={(event) => event.stopPropagation()}>
             <span className="error-modal__icon" aria-hidden="true">
               <AlertIcon />
             </span>
@@ -473,12 +462,7 @@ function App() {
               <p className="error-modal__text" id="error-modal-description">{error}</p>
               <button type="button" className="btn error-modal__action" onClick={() => setError("")}>Close</button>
             </div>
-            <button
-              type="button"
-              className="error-modal__close"
-              onClick={() => setError("")}
-              aria-label="Dismiss error"
-            >
+            <button type="button" className="error-modal__close" onClick={() => setError("")} aria-label="Dismiss error">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
                 <path d="M6 6l12 12M18 6L6 18" />
               </svg>

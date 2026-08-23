@@ -7,3 +7,8 @@
 {"timestamp":"2026-08-23T16:57:36.986Z","level":"info","message":"Image generation requested","context":{"provider":"nvidia"}}
 {"timestamp":"2026-08-23T17:30:21.876Z","level":"info","message":"App listening","context":{"port":"3300"}}
 {"timestamp":"2026-08-23T17:48:04.942Z","level":"info","message":"Image generation requested","context":{}}
+{"timestamp":"2026-08-23T18:00:53.168Z","level":"info","message":"Image generation requested","context":{"provider":"nvidia"}}
+{"timestamp":"2026-08-23T18:01:21.858Z","level":"info","message":"Image generation requested","context":{"provider":"nvidia"}}
+{"timestamp":"2026-08-23T18:01:41.775Z","level":"info","message":"Image generation requested","context":{"provider":"nvidia"}}
+{"timestamp":"2026-08-23T18:02:06.800Z","level":"info","message":"Image generation requested","context":{"provider":"nvidia"}}
+{"timestamp":"2026-08-23T18:11:06.807Z","level":"info","message":"App listening","context":{"port":"3300"}}
