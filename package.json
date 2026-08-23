@@ -1,0 +1,14 @@
+{
+  "name": "youtube-ai-Image Generator",
+  "version": "1.0.0",
+  "description": "Youtube Image Generation Interphase",
+  "license": "ISC",
+  "author": "Yunus Kelani",
+  "type": "commonjs",
+  "main": "index.js",
+ "scripts": {"dev": "concurrently \"npm --prefix backend run dev\" \"npm --prefix frontend run dev\"",
+   "backend": "npm --prefix backend run dev", "frontend": "npm --prefix frontend run dev"},
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
+}

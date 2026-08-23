@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="sparkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <path d="M 356.49 254.56 A 130 130 0 0 1 279.98 306.5 L 263.38 236.44 A 58 58 0 0 0 297.51 213.27 Z" fill="#22D3EE"/>
+    <path d="M 262.08 309.44 A 130 130 0 0 1 172.98 284.73 L 215.64 226.72 A 58 58 0 0 0 255.39 237.75 Z" fill="#8B5CF6"/>
+    <path d="M 159.15 272.99 A 130 130 0 0 1 120.32 189.07 L 192.14 184.05 A 58 58 0 0 0 209.47 221.49 Z" fill="#1A1025"/>
+    <path d="M 120.32 170.93 A 130 130 0 0 1 159.15 87.01 L 209.47 138.51 A 58 58 0 0 0 192.14 175.95 Z" fill="#0A0A0F"/>
+    <path d="M 172.98 75.27 A 130 130 0 0 1 262.08 50.56 L 255.39 122.25 A 58 58 0 0 0 215.64 133.28 Z" fill="#150A20"/>
+    <path d="M 279.98 53.5 A 130 130 0 0 1 356.49 105.44 L 297.51 146.73 A 58 58 0 0 0 263.38 123.56 Z" fill="#7C3AED"/>
+    <polygon points="350.0,180.0 380.0,150.0 410.0,180.0 380.0,210.0" fill="url(#sparkGrad)"/>
+  </g>
+  <text x="250" y="430" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="66" letter-spacing="10" fill="#0A0A0A">CIRCUS</text>
+  <text x="250" y="470" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="19" letter-spacing="9" fill="#7C3AED">IMAGE GENERATOR</text>
+</svg>
